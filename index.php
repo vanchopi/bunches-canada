@@ -59,7 +59,10 @@
 									</div>
 								</div>
 								<div class="top-search__wrp">
-									<input type="text" placeholder="Serach">
+                                    <form action="/index.php?page=shop.browse&amp;option=com_virtuemart&amp;Itemid=663" method="post">
+                                        <input type="text" name="keyword">
+                                        <input type="submit">
+                                    </form>
 								</div>
 							</div>	
 						</div>
