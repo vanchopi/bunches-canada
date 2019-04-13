@@ -1,26 +1,16 @@
 <?php
 
-    require_once 'config.php';
+    // errors
+    ini_set("display_errors",1);
+    error_reporting(E_ALL);
+
+    require_once $_SERVER['DOCUMENT_ROOT'] .'/weekly/config.php';
 
     $weekly = new Weekly();
 
     if( !$weekly->status ){
         $weekly->redirect();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ?>
@@ -212,16 +202,18 @@
 					<div class="weekly-cont__items">
 						<div class="items-list__cont">
 							<ul class="items-list__warp">
+
+                                <?php foreach( $weekly->products as $product ): ?>
 								<li class="item">
 							        <div class="item-internal__wrap">
 							            <div class="item-internal__cont">
 							                <div class="item-counter__wrap">
 							                    <div class="item-img__wrap">
-							                        <a href="#">
-							                            <img src="/weekly/images/img1.svg" alt="">
+							                        <a href="<?php echo $product['url']; ?>">
+							                            <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
 							                        </a>							                        
 							                        <div class="item-percantage">
-							                            <div class="percents">50%</div>
+							                            <div class="percents"><?php echo $product['sale']; ?>%</div>
 							                            off
 							                        </div>
 							                    </div>
@@ -231,8 +223,8 @@
 							                </div>
 							                <div class="item-title">
 							                    <div class="title-wrp">
-							                        <a href="">
-							                        	<span>Classic Hot Pink Gerbera Daisy Toss Bouquet</span>
+							                        <a href="<?php echo $product['url']; ?>">
+							                        	<span><?php echo $product['name']; ?></span>
 							                        </a>
 							                    </div>
 							                </div>
@@ -246,251 +238,7 @@
 							            </div>
 							        </div>
 							    </li>
-
-							    <li class="item">
-							        <div class="item-internal__wrap">
-							            <div class="item-internal__cont">
-							                <div class="item-counter__wrap">
-							                    <div class="item-img__wrap">
-							                        <a href="#">
-							                            <img src="/weekly/images/img2.svg" alt="">
-							                        </a>							                        
-							                        <div class="item-percantage">
-							                            <div class="percents">50%</div>
-							                            off
-							                        </div>
-							                    </div>
-							                    <div class="item-counter">
-							                        <div class="countdown-counter" id="countdown-counter"></div>
-							                    </div>
-							                </div>
-							                <div class="item-title">
-							                    <div class="title-wrp">
-							                        <a href="">
-							                        	<span>Classic Hot Pink Gerbera Daisy Toss Bouquet</span>
-							                        </a>
-							                    </div>
-							                </div>
-							                <div class="item-price__wrap">
-							                    <div class="item-price">&#36;149.99</div>
-							                    <div class="item-price__old">&#36;159.99</div>
-							                </div>
-							                <div class="item-order__wrapp">
-							                    <span>Add To Cart</span>							                    
-							                </div>
-							            </div>
-							        </div>
-							    </li>
-
-							    <li class="item">
-							        <div class="item-internal__wrap">
-							            <div class="item-internal__cont">
-							                <div class="item-counter__wrap">
-							                    <div class="item-img__wrap">
-							                        <a href="#">
-							                            <img src="/weekly/images/img1.svg" alt="">
-							                        </a>							                        
-							                        <div class="item-percantage">
-							                            <div class="percents">50%</div>
-							                            off
-							                        </div>
-							                    </div>
-							                    <div class="item-counter">
-							                        <div class="countdown-counter" id="countdown-counter"></div>
-							                    </div>
-							                </div>
-							                <div class="item-title">
-							                    <div class="title-wrp">
-							                        <a href="">
-							                        	<span>Classic Hot Pink Gerbera Daisy Toss Bouquet</span>
-							                        </a>
-							                    </div>
-							                </div>
-							                <div class="item-price__wrap">
-							                    <div class="item-price">&#36;149.99</div>
-							                    <div class="item-price__old">&#36;159.99</div>
-							                </div>
-							                <div class="item-order__wrapp">
-							                    <span>Add To Cart</span>							                    
-							                </div>
-							            </div>
-							        </div>
-							    </li>
-
-							    <li class="item">
-							        <div class="item-internal__wrap">
-							            <div class="item-internal__cont">
-							                <div class="item-counter__wrap">
-							                    <div class="item-img__wrap">
-							                        <a href="#">
-							                            <img src="/weekly/images/img2.svg" alt="">
-							                        </a>							                        
-							                        <div class="item-percantage">
-							                            <div class="percents">50%</div>
-							                            off
-							                        </div>
-							                    </div>
-							                    <div class="item-counter">
-							                        <div class="countdown-counter" id="countdown-counter"></div>
-							                    </div>
-							                </div>
-							                <div class="item-title">
-							                    <div class="title-wrp">
-							                        <a href="">
-							                        	<span>Classic Hot Pink Gerbera Daisy Toss Bouquet</span>
-							                        </a>	
-							                    </div>
-							                </div>
-							                <div class="item-price__wrap">
-							                    <div class="item-price">&#36;149.99</div>
-							                    <div class="item-price__old">&#36;159.99</div>
-							                </div>
-							                <div class="item-order__wrapp">
-							                    <span>Add To Cart</span>							                    
-							                </div>
-							            </div>
-							        </div>
-							    </li>
-
-							    <li class="item">
-							        <div class="item-internal__wrap">
-							            <div class="item-internal__cont">
-							                <div class="item-counter__wrap">
-							                    <div class="item-img__wrap">
-							                        <a href="#">
-							                            <img src="/weekly/images/img1.svg" alt="">
-							                        </a>							                        
-							                        <div class="item-percantage">
-							                            <div class="percents">50%</div>
-							                            off
-							                        </div>
-							                    </div>
-							                    <div class="item-counter">
-							                        <div class="countdown-counter" id="countdown-counter"></div>
-							                    </div>
-							                </div>
-							                <div class="item-title">
-							                    <div class="title-wrp">
-							                        <a href="">
-							                        	<span>Classic Hot Pink Gerbera Daisy Toss Bouquet</span>
-							                        </a>
-							                    </div>
-							                </div>
-							                <div class="item-price__wrap">
-							                    <div class="item-price">&#36;149.99</div>
-							                    <div class="item-price__old">&#36;159.99</div>
-							                </div>
-							                <div class="item-order__wrapp">
-							                    <span>Add To Cart</span>							                    
-							                </div>
-							            </div>
-							        </div>
-							    </li>
-
-							    <li class="item">
-							        <div class="item-internal__wrap">
-							            <div class="item-internal__cont">
-							                <div class="item-counter__wrap">
-							                    <div class="item-img__wrap">
-							                        <a href="#">
-							                            <img src="/weekly/images/img2.svg" alt="">
-							                        </a>							                        
-							                        <div class="item-percantage">
-							                            <div class="percents">50%</div>
-							                            off
-							                        </div>
-							                    </div>
-							                    <div class="item-counter">
-							                        <div class="countdown-counter" id="countdown-counter"></div>
-							                    </div>
-							                </div>
-							                <div class="item-title">
-							                    <div class="title-wrp">
-							                        <a href="">
-							                        	<span>Classic Hot Pink Gerbera Daisy Toss Bouquet</span>
-							                        </a>
-							                    </div>
-							                </div>
-							                <div class="item-price__wrap">
-							                    <div class="item-price">&#36;149.99</div>
-							                    <div class="item-price__old">&#36;159.99</div>
-							                </div>
-							                <div class="item-order__wrapp">
-							                    <span>Add To Cart</span>							                    
-							                </div>
-							            </div>
-							        </div>
-							    </li>
-
-							    <li class="item">
-							        <div class="item-internal__wrap">
-							            <div class="item-internal__cont">
-							                <div class="item-counter__wrap">
-							                    <div class="item-img__wrap">
-							                        <a href="#">
-							                            <img src="/weekly/images/img1.svg" alt="">
-							                        </a>							                        
-							                        <div class="item-percantage">
-							                            <div class="percents">50%</div>
-							                            off
-							                        </div>
-							                    </div>
-							                    <div class="item-counter">
-							                        <div class="countdown-counter" id="countdown-counter"></div>
-							                    </div>
-							                </div>
-							                <div class="item-title">
-							                    <div class="title-wrp">
-							                        <a href="">
-							                        	<span>Classic Hot Pink Gerbera Daisy Toss Bouquet</span>
-							                        </a>
-							                    </div>
-							                </div>
-							                <div class="item-price__wrap">
-							                    <div class="item-price">&#36;149.99</div>
-							                    <div class="item-price__old">&#36;159.99</div>
-							                </div>
-							                <div class="item-order__wrapp">
-							                    <span>Add To Cart</span>							                    
-							                </div>
-							            </div>
-							        </div>
-							    </li>
-
-							    <li class="item">
-							        <div class="item-internal__wrap">
-							            <div class="item-internal__cont">
-							                <div class="item-counter__wrap">
-							                    <div class="item-img__wrap">
-							                        <a href="#">
-							                            <img src="/weekly/images/img2.svg" alt="">
-							                        </a>							                        
-							                        <div class="item-percantage">
-							                            <div class="percents">50%</div>
-							                            off
-							                        </div>
-							                    </div>
-							                    <div class="item-counter">
-							                        <div class="countdown-counter" id="countdown-counter"></div>
-							                    </div>
-							                </div>
-							                <div class="item-title">
-							                    <div class="title-wrp">
-							                        <a href="">
-							                        	<span>Classic Hot Pink Gerbera Daisy Toss Bouquet</span>
-							                        </a>	
-							                    </div>
-							                </div>
-							                <div class="item-price__wrap">
-							                    <div class="item-price">&#36;149.99</div>
-							                    <div class="item-price__old">&#36;159.99</div>
-							                </div>
-							                <div class="item-order__wrapp">
-							                    <span>Add To Cart</span>							                    
-							                </div>
-							            </div>
-							        </div>
-							    </li>
+                                <?php endforeach; ?>
 
 							</ul>
 						</div>
