@@ -41,5 +41,34 @@ $(document).ready(function(){
     }
     getCart();
 
+     $(document).on('mouseover','.cart-cont .common-cont', function(e){
+
+        let el = $('.block-wrapper');        
+        el.addClass('show');    
+        $('.cart-cont').addClass('show');        
+    });
+
+    //mouseout
+    $(document).on('mouseout','.cart-cont .common-cont', function(e){
+        $('.block-wrapper').removeClass('show'); 
+        $('.cart-cont').removeClass('show');
+    });
+
+    $(document).on( 'click', '.icon.mobile-cart', function(){
+        let wSize = document.documentElement.clientWidth;
+        if(wSize < 750){
+            $('.cart-cont').addClass('show');
+            $('.block-wrapper').addClass('show');
+        }    
+    });
+
+    $(document).on('click', '.block-wrapper .cross-internal', function(){
+      let wSize = document.documentElement.clientWidth;
+        if(wSize < 750){  
+          $('.block-wrapper').removeClass('show');  
+          $('.cart-cont').removeClass('show');
+        }  
+    })
+
 })
 
