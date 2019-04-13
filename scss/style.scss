@@ -22,6 +22,14 @@ a{
 	text-decoration: none;
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+
+*:focus {
+    outline: none;
+}
+
 .container{
 	width: 100%;
 	max-width: 1025px;
@@ -64,6 +72,14 @@ $pad: 0 20px 0 20px;
 						}
 						.flags{
 							margin-left: 15px;
+							a{
+								text-decoration: none;
+    							color: #897092;
+    							&:hover{
+									color: #23527c;
+    								text-decoration: underline;
+    							}
+    						}	
 							
 							&:first-child{
 							}
@@ -80,17 +96,20 @@ $pad: 0 20px 0 20px;
 							height: 29px;
 							padding: 0 40px 0 20px;							
 						}
-						&:after{
-							content: '';
-						    width: 13.81px;
-						    height: 14px;
-						    background-image: url(../images/search.svg);
-						    background-size: cover;
-						    position: absolute;
+						/*&:after*/
+						.search-bt__wrp{
+							position: absolute;
+							width: 40px;
+							height: 28px;
+							display: flex;
 						    top: 0;
 						    right: 0;
-						    margin-right: 15px;
-    						margin-top: 8px;
+						    cursor: pointer;
+							.search-bt{
+							    width: 14px;
+							    height: 16px;
+							    margin: auto;
+	    					}	
 						}
 					}
 				}
