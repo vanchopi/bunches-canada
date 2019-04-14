@@ -33,6 +33,7 @@
 	<title>One Week only</title>
 	
 	<meta name="keywords" content="test-task">
+	<link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
 	<link rel="stylesheet" href="/weekly/css/style.css">
 </head>
 <body>
@@ -60,6 +61,11 @@
                                         <input type="text" name="keyword">
                                         <input type="submit">
                                     </form>
+                                    <div class="search-bt__wrp">
+										<div class="search-bt">
+											<img src="images/search.svg" alt="">
+										</div>
+									</div>
 								</div>
 							</div>	
 						</div>
@@ -83,14 +89,24 @@
 									<!--<div class="icon cart">
 										<img src="/weekly/images/cart.svg" alt="">
 									</div>-->
-									<div class="string-wrapper cart">
-										<div class="number">Shopping Cart</div>
-                                        <!--
-										<div class="txt">
-											<i>0 </i>Products |
-											<b>$0.00</b>
+									<div class="common-cont">
+										<div class="string-wrapper cart">
+											<div class="number">Shopping Cart</div>
+	                                        <!--
+											<div class="txt">
+												<i>0 </i>Products |
+												<b>$0.00</b>
+											</div>
+											-->
+										</div>	
+										<div class="block-wrapper">
+											<div class="block-internal">
+												<div class="mobile-cross__wrapper">
+													<div class="cross-internal">×</div>
+												</div>
+												<div class="txt">Your Cart is empty.</div>
+											</div>
 										</div>
-										-->
 									</div>
 								</div>
 							</div>
@@ -116,7 +132,7 @@
 										<div class="icon">
 											<img src="/weekly/images/phone-m.svg" alt="">
 										</div>
-										<div class="icon">
+										<div class="icon mobile-cart">
 											<img src="/weekly/images/cart-m.svg" alt="">
 										</div>
 									</div>
@@ -134,26 +150,26 @@
 									</div>	-->
 									<ul>
 										<li>
-											<a href="#">HOME</a>
+											<a href="https://bunchesdirect.ca">HOME</a>
 										</li>
 										<li>
-											<a href="#">WEDDING FLOWERS</a>
+											<a href="https://bunchesdirect.ca/Wedding-Flowers.html">WEDDING FLOWERS</a>
 										</li>
 										<li>
-											<a href="#">BULK FLOWERS</a>
+											<a href="https://bunchesdirect.ca/Bulk-Flowers.html">BULK FLOWERS</a>
 										</li>
 										<li>
-											<a href="#">VALUE PACKAGES</a>
+											<a href="https://bunchesdirect.ca/Value-Packages.html">VALUE PACKAGES</a>
 										</li>
 										<li>
-											<a href="#">SUPPLIES</a>
+											<a href="https://bunchesdirect.ca/Supplies.html">SUPPLIES</a>
 										</li>
 										<li>
-											<a href="#">WEDDING FLOWER</a>
+											<a href="https://www.weddingwire.ca/wedding-flowers/bunchesdirect--e8654/photos/0">WEDDING FLOWER</a>
 										</li>
 										<li>
-											<a href="#">GALLERY</a>
-										</li>										
+											<a href="https://www.weddingwire.ca/wedding-flowers/bunchesdirect--e8654/photos/0">GALLERY</a>
+										</li>											
 									</ul>
 									<div class="menu-bg">
 										<img src="/weekly/images/cat_bg.svg" alt="">
@@ -165,28 +181,28 @@
 					                    	<tbody>
 					                    		<tr>
 					                    			<td nowrap="nowrap">
-					                    				<a href="#" class="mainlevel">
+					                    				<a href="https://bunchesdirect.ca/about-us.html" class="mainlevel">
 					                    					<b>About Us</b>
 					                    				</a>
-					                    				<a href="#" class="mainlevel">
+					                    				<a href="https://bunchesdirect.ca/Testimonials/menu-id-383.html" class="mainlevel">
 					                    					<b>Testimonials</b>
 					                    				</a>
-					                    				<a href="#" class="mainlevel">
+					                    				<a href="https://bunchesdirect.ca/press-room-bunches-direct-gives-back-helping-operation-shower/menu-id-413.html" class="mainlevel">
 					                    					<b>Press Room</b>
 					                    				</a>
-					                    				<a href="#" class="mainlevel">
+					                    				<a href="https://bunchesdirect.ca/component/option,com_fsf/Itemid,361/view,faq/" class="mainlevel">
 					                    					<b>FAQ's</b>
 					                    				</a>
-					                    				<a href="#" class="mainlevel">
+					                    				<a href="https://bunchesdirect.ca/delivery-policy.html" class="mainlevel">
 					                    					<b>Delivery Information</b>
 					                    				</a>
-					                    				<a href="#" class="mainlevel">
+					                    				<a href="https://bunchesdirect.ca/About-Us/become-an-event-account-member-save-on-bulk-flowers/menu-id-201.html" class="mainlevel">
 					                    					<b>Wedding &amp; Event Planners</b>
 					                    				</a>
-					                    				<a href="#" class="mainlevel">
+					                    				<a href="https://bunchesdirect.ca/menu-id-202.html?task=quoteform" class="mainlevel">
 					                    					<b>Get a Quote</b>
 					                    				</a>
-					                    				<a href="#" class="mainlevel">
+					                    				<a href="https://bunchesdirect.ca/About-Us/flower-care-instructions/menu-id-443.html" class="mainlevel">
 					                    					<b>Flower Care</b>
 					                    				</a>
 					                    			</td>
