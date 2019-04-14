@@ -7,28 +7,15 @@
 
 class Weekly {
 
-    public  $start;
-    public  $stop;
+    public  $startWeekDay = 'Monday';
+    public  $currentWeekDay;
+    public  $startDate;
+    public  $returnPricesDate;
     public  $status;
     public  $root;
-    public  $import = 'products';
-    public  $products = array(
-
-        'BBB514' => array( 'sale' => '45', 'image' => 'f6b4d628b8a4b35900452bf3adfe65b3.jpg'),
-        'BBB483' => array( 'sale' => '45', 'image' => '35dcfc4b5c64f26b33cbaa0aa995a7ca.jpg'),
-        'BBB348' => array( 'sale' => '45', 'image' => '512e1d2250ede5c4103f2b4095ce3424.jpg'),
-        'BBB22R' => array( 'sale' => '45', 'image' => 'a21ea168df44bba253ddf49f913556e5.jpg'),
-        'BBB367' => array( 'sale' => '30', 'image' => 'c3ea5b3ebb3cc211b6959c9c97d62a29.jpg'),
-        'BBB368' => array( 'sale' => '30', 'image' => '2451a962e029177fcbc4a530e09b0134.jpg'),
-        'BBB341' => array( 'sale' => '40', 'image' => '2c02462451c114ee2b7e4ec62ae0e24d.jpg'),
-        'BBB343' => array( 'sale' => '40', 'image' => '5ce3db4039286d60658c01c02a096fc7.jpg'),
-        'BBB378' => array( 'sale' => '30', 'image' => 'd0dcfbc24f6f37529af3bf4c3bf135b0.jpg'),
-        'BBB390' => array( 'sale' => '45', 'image' => '61fc9a4e5be6a13c11e3a2ba321b2a6d.jpg'),
-        'BBB493' => array( 'sale' => '45', 'image' => '65b118beaebec7bb63f9ee82a45e0be1.jpg'),
-        'BBB310' => array( 'sale' => '45', 'image' => '9d39a496659e4b071c51a47ae7e0b5d6.jpg'),
-        'BBB361' => array( 'sale' => '40', 'image' => '715a794cc3b64142eb4a3683e052fba0.jpg'),
-
-    );
+    public  $import = 'weekly/products';
+    public  $weekFolder;
+    public  $products = array();
     private $domain;
     private $jConfig;
     private $dbConfig;
@@ -39,15 +26,28 @@ class Weekly {
     public function __construct()
     {
 
-        $this->start = date('Y-m-d', strtotime('last sunday'));
-        $this->stop  = date('Y-m-d', ( $this->start + ( 60 * 60 * 24 * 7 ) ));
+        // get today date
+        $this->currentWeekDay   = date('l', strtotime('now'));
 
+        // init sale date
+        $this->startDate        = ( $this->currentWeekDay == $this->startWeekDay ? date('Y-m-d', strtotime('now')) : date('Y-m-d', strtotime('last ' . $this->startWeekDay)) );
+
+        // set date to return standard prices
+        $this->returnPricesDate = ( $this->currentWeekDay == $this->startWeekDay ? date('Y-m-d', ( strtotime('now') - ( 60 * 60 * 24 * 7 ) ) ) : null );
+
+        // site root folder
         $this->root   = $_SERVER['DOCUMENT_ROOT'];
+
+        // site protocol
         $this->domain =  ( isset($_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER['SERVER_NAME'];
 
-        $this->status = self::setStart();
+        // path to current week sale
+        $this->weekFolder = $this->root . '/' . $this->import . '/' . ( isset($_GET['check']) && $_GET['check'] ? $_GET['check'] : $this->startDate ) . '/';
 
+        // get Joomla config
         $this->jConfig = new  JConfig();
+
+        // set database settings
         $this->dbConfig =  array(
             'server'    => $this->jConfig->host,
             'database'  => $this->jConfig->db,
@@ -59,7 +59,8 @@ class Weekly {
             'socket'    => ''
         );
 
-        $this->getProductInformation();
+        // check sale from current week
+        $this->setStart();
 
     }
 
@@ -69,11 +70,15 @@ class Weekly {
     */
     public function setStart()
     {
-        if( count($this->products) > 0 ){
+
+        if( file_exists( $this->weekFolder ) ){
+            $this->status = true;
             return true;
         } else {
+            $this->status = false;
             return false;
         }
+
     }
 
     /**
@@ -93,38 +98,32 @@ class Weekly {
     /**
      * import sale products and setup new prices
     */
-    private function import()
+    public function products()
     {
-        $path       = $this->root . '/' . $this->import . '/' . $this->start;
-        $checkInit  = $path . '/1.txt';
-        $sale       = $path . '/sale.csv';
 
-        if( !file_exists( $checkInit ) ) {
-            if( file_exists( $sale ) ) {
+        // get sale products from sale.csv
+        $sale = $this->weekFolder . '/sale.csv';
 
-                $products = fopen( $sale, 'r' );
+        if( is_readable( $sale ) ) {
 
-                if( $products ){
+            $products = fopen( $sale, 'r' );
 
-                    $count = count( $products );
+            if( $products ){
 
-                    while ( ( $data = fgetcsv($products, 300, "\n" ) ) !== FALSE ) {
+                $count = count( $products );
 
-                        for ( $c = 0; $c < $count; $c++ ) {
+                while ( ( $data = fgetcsv($products, 300, "\n" ) ) !== FALSE ) {
 
-                            $line = explode(',', $data[$c] );
+                    for ( $c = 0; $c < $count; $c++ ) {
 
-                            foreach( $line as $key => $value ){
+                        $line = explode(',', $data[$c] );
 
-                                $vUtf = mb_convert_encoding( $value, "CP1251", "UTF-8");
+                        if( !in_array('current_price', $line) ){
 
-                                /***************************** VV ****************************/
-                                echo
-                                    '<hr><pre style="color:#000">LINE: ', __LINE__, '<br>FILE: ', __FILE__, '<hr>',
-                                    var_dump($vUtf), '</pre>';
-                                /***************************** VV ****************************/
-
-                            }
+                            $this->products[$line[0]] = array(
+                                'sale' => mb_convert_encoding( $line[2], "CP1251", "UTF-8"),
+                                'image' => '/' . $this->import . '/' . $this->startDate . '/' . mb_convert_encoding( $line[3], "CP1251", "UTF-8")
+                            );
 
                         }
 
@@ -133,6 +132,11 @@ class Weekly {
                 }
 
             }
+
+        }
+
+        if( count( $this->products ) > 0 ){
+            $this->getProductInformation();
         }
 
     }
@@ -142,10 +146,12 @@ class Weekly {
     */
     private function getProductInformation()
     {
+
         if( $this->products ){
 
             $ORM = new ORM( $this->dbConfig );
             $ids = array_keys( $this->products );
+
             $query = null;
             foreach ($ids as $id) {
                 $query[] = "'" . $id . "'";
@@ -174,6 +180,7 @@ class Weekly {
             }
 
         }
+
     }
 
 

@@ -10,6 +10,13 @@
 
     if( !$weekly->status ){
         $weekly->redirect();
+    } else {
+        if( !isset($_GET['check']) ){
+//            $weekly->correctPrices();
+        }
+
+        $weekly->products();
+
     }
 
 
