@@ -105,10 +105,10 @@ $(document).ready(function(){
                     $(this).closest(wrp).addClass('get-cart');
                     console.log(response);
                     _.after(response);
-                    getCart();    
-                    $($(this).closest(wrp).children("span.cart-class + .mini-cart2")[0].previousSibling).remove();                
+                    getCart();                                     
                 }
             });
+        $($(this).closest(wrp).children("span.cart-class + .mini-cart2")[0].previousSibling).remove();       
     })
 
 

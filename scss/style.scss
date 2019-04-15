@@ -54,6 +54,10 @@ input.hidden{
 	display: none !important;
 }
 
+.hidden{
+	display: none !important;
+}
+
 .weekly-cont{
 	position: relative;
 	width: 100%;	
@@ -195,7 +199,7 @@ input.hidden{
 							    		&:last-child{
 							    			vertical-align: top;
     										padding-top: 10px;
-    										width: 22%;
+    										width: 30px;
 							    		}
 							    		a{
 							    			vertical-align: middle;
@@ -251,6 +255,8 @@ input.hidden{
 								border: 1px solid #e6e2e2;
 		    					border-radius: 4px;
 							    background: white;
+							    max-height: 327px;
+    							overflow-y: scroll;
 								.mobile-cross__wrapper{
 									display: none;									
 								}
