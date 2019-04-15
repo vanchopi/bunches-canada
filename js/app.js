@@ -31,8 +31,20 @@ $(document).ready(function(){
     function checkIfWeekly(){
         if ($('input.hidden.checking').length > 0 ){
             $('.week-sale').addClass('hidden');
+        }else{
+
         }
     }
+
+    function checkIfWeeklyJoomla(){
+        if ($('input.hidden.checking').length > 0 ){
+        }else{
+            $('.moduletable-category .dropdown').css({'display' : '#flex', 'justify-content':'space-around', 'padding':'6px 70px 0 70px !important'});
+            $('.moduletable-category .dropdown').append('<li class="week-sale"><a href="https://bunchesdirect.ca/weekly/">WEEK SALE</a></li>');
+        }
+    }
+
+    checkIfWeeklyJoomla();
 
     checkIfWeekly();
 
