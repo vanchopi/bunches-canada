@@ -123,9 +123,9 @@
 								</div>
 								<div class="bt-group">
 									<div class="wrapper">
-										<div class="icon">
+										<!--<div class="icon">
 											<img src="/weekly/images/search-m.svg" alt="">
-										</div>
+										</div>-->
 										<div class="icon">
 											<img src="/weekly/images/phone-m.svg" alt="">
 										</div>
