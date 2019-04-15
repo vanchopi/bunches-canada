@@ -273,15 +273,16 @@ class Weekly {
             foreach ($ids as $id) {
                 $query[] = "'" . $id . "'";
             }
+
+
             $result = $ORM::queryAll("SELECT * FROM `weekly_temp_products` WHERE `product_sku` IN ('{$query}') AND `status` = '1' AND `start_date` = '{$this->beforeWeekSale}'");
 
-        }
+            if( $result ){
 
+            foreach ( $result as $product ){
 
-        if( $result ){
+                ORM::query("UPDATE `weekly_temp_products` SET `status` = '0' WHERE `product_sku` = '{$product['product_id']}");
 
-//            foreach ( $result as $product ){
-//
 //                if( date("Y-m-d", strtotime('now') ) == $this->returnPricesDate && file_exists( $this->beforeWeekSale ) ){
 //                    $backupPrices = $ORM::queryAll("SELECT * FROM `weekly_temp_products` WHERE `back_date` = '{$this->returnPricesDate }' AND `status` = '1'");
 //
@@ -297,8 +298,10 @@ class Weekly {
 //                    }
 //
 //                }
-//
-//            }
+
+            }
+
+            }
 
         }
 
