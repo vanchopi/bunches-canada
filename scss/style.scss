@@ -50,6 +50,10 @@ $width3: calc(100%);
 $widthMid: calc(100% / 3);
 $pad: 0 20px 0 20px;
 
+input.hidden{
+	display: none !important;
+}
+
 .weekly-cont{
 	position: relative;
 	width: 100%;	
@@ -321,6 +325,36 @@ $pad: 0 20px 0 20px;
     					margin-top: 30px;
     					position: relative;
     					display: flex;
+    					li.week-sale.hidden{
+    						display: none;
+    					}
+    					li.week-sale{	
+    						position: relative;
+
+							a{
+								color: #5dff5d;	
+								position: relative;
+								&:after{
+									content:"%";
+									width: 20px;
+									height: 20px;
+									border-radius: 50%;
+									background: #ff1818;
+									position: absolute;
+									top: 0;
+									right: 0;
+									margin-top: -16px;
+									margin-right: -18px;
+									font-size: 10px;
+									color: white;
+									font-weight: bold;
+									display: flex;
+									flex-direction: column;
+									justify-content: center;
+									text-align: center;
+	    						}
+							}
+						}
     					.mobile-cross__wrapper{
     						display: none;
     					}
@@ -790,7 +824,7 @@ $pad: 0 20px 0 20px;
 							margin-top: 0;
 							padding: 10px;
 							display: table;
-							width: calc(100% - 20px);
+							width: calc(100% - 20px);							
 							.mobile-cross__wrapper{
 								display: block;
 								display: flex;

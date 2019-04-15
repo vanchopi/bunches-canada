@@ -92,12 +92,9 @@
 									<div class="common-cont">
 										<div class="string-wrapper cart">
 											<div class="number">Shopping Cart</div>
-	                                        <!--
 											<div class="txt">
-												<i>0 </i>Products |
-												<b>$0.00</b>
+                                                My Cart: <i>0</i>
 											</div>
-											-->
 										</div>	
 										<div class="block-wrapper">
 											<div class="block-internal">
@@ -169,6 +166,9 @@
 										</li>
 										<li>
 											<a href="https://www.weddingwire.ca/wedding-flowers/bunchesdirect--e8654/photos/0">GALLERY</a>
+										</li>
+										<li class="week-sale">
+											<a href="https://www.weddingwire.ca/wedding-flowers/bunchesdirect--e8654/photos/0">WEEK SALE</a>
 										</li>											
 									</ul>
 									<div class="menu-bg">
@@ -252,13 +252,30 @@
 							                    </div>
 							                </div>
 							                <div class="item-price__wrap">
-							                    <div class="item-price">&#36;149.99</div>
-							                    <div class="item-price__old">&#36;159.99</div>
+                                                <div class="item-price">&#36;<?php echo ((float)$product['week_sale_price'] - 0.01); ?></div>
+                                                <div class="item-price__old">&#36;<?php echo (float)$product['product_price']; ?></div>
 							                </div>
 							                <div class="item-order__wrapp">
+
 							                	<div class="message">This product has been added</div>
-							                    <span>Add To Cart</span>	
-							                    <span class="show-cart">Show Cart Now</span>							                    
+
+							                    <span
+							                    	class="cart-class"
+                                                    data-quantity="1"
+                                                    data-product_id="<?php echo $product['product_id']?>"
+                                                    data-prod_id="<?php echo $product['product_id']?>"
+                                                    data-flypage="shop.flypage.tpl"
+                                                    data-manufacturer_id="1"
+                                                    data-product_name="<?php echo $product['name']; ?>"
+                                                    data-func="cartAdd"
+                                                    data-page="shop.cart"
+                                                    data-option="com_virtuemart"
+                                                    data-ajax_action="1"
+                                                    data-quantity_per_bunch="1"
+                                                >Add To Cart</span>
+
+                                                <span class="show-cart">Show Cart Now</span>							                    
+
 							                </div>
 							            </div>
 							        </div>
@@ -271,6 +288,7 @@
 				</div>
 			</div>
 		</section> 
+		<!--<input type="text" class="hidden checking">-->
 	</div>
 	<script src="/weekly/assets/js/jquery-3.3.1.min.js"></script>
 	<script src="/weekly/assets/js/jquery.countdown-2.2.0/jquery.countdown.min.js"></script>
