@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	function weeklyInit(){
-        $('.countdown-counter').countdown('2020/10/10').on('update.countdown', function(event) {
+        $('.countdown-counter').countdown('2020/10/11').on('update.countdown', function(event) {
   			let $this = $(this).html(event.strftime(''
                     + '<div class="counter days"><div>%d</div> <i>days</i> </div><span>&#58;</span>'
                     + '<div class="counter hours"><div>%H</div> <i>hr</i> </div><span>&#58;</span>'
@@ -30,12 +30,16 @@ $(document).ready(function(){
 
     // ajax get cart
     function getCart() {
-        let cart;
-
         $.post('/index.php', {task:'get_cart'})
             .done(function (response) {
                 if(response){
-                    console.log(response);
+                    try{
+                        let resJson = JSON.parse(response);
+                        $('.block-internal .txt').html(resJson.content);
+                        $('.string-wrapper.cart .txt i').html(resJson.count);
+                    } catch(e){
+
+                    }
                 }
             });
     }
@@ -69,6 +73,42 @@ $(document).ready(function(){
           $('.cart-cont').removeClass('show');
         }  
     })
+
+    $(document).on('click', '.item-order__wrapp span', function () {
+        let _ = $(this),
+            data = _.data();
+        $.post('/index.php', data)
+            .done(function (response) {
+                if(response){
+                    console.log(response);
+                    _.after(response);
+                    getCart();
+                }
+            });
+    })
+
+
+
+
+    // data-quantity: 1
+    // data-product_id: 2963
+    // data-prod_id[]: 2963
+    // data-Color:
+    // data-input_ribbon_color:
+    // data-flypage: shop.flypage.tpl
+    // data-manufacturer_id: 1
+    // data-category_id: 291
+    // data-product_name: Orange Bliss Bridal Bouquet
+    // data-Itemid: 479
+    // data-product_id: 2963
+    // data-set_price[]:
+    // data-adjust_price[]:
+    // data-master_product[]:
+    // data-func: cartAdd
+    // data-page: shop.cart
+    // data-option: com_virtuemart
+    // data-ajax_action: 1
+    // data-quantity_per_bunch: 1
 
 })
 
