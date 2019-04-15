@@ -265,14 +265,17 @@ class Weekly {
     private function returnPrices()
     {
 
+        if( $this->beforeWeekSale ){
 
-        $ORM = new ORM( $this->dbConfig );
-        $ids = array_keys( $this->products );
-        $query = null;
-        foreach ($ids as $id) {
-            $query[] = "'" . $id . "'";
+            $ORM = new ORM( $this->dbConfig );
+            $ids = array_keys( $this->products );
+            $query = null;
+            foreach ($ids as $id) {
+                $query[] = "'" . $id . "'";
+            }
+            $result = $ORM::queryAll("SELECT * FROM `weekly_temp_products` WHERE `product_sku` IN ('{$query}') AND `status` = '1' AND `start_date` = '{$this->beforeWeekSale}'");
+
         }
-        $result = $ORM::queryAll("SELECT * FROM `weekly_temp_products` WHERE `product_sku` IN ('{$query}') AND `status` = '1' AND `start_date` = '{$this->startDate}'");
 
 
         if( $result ){
