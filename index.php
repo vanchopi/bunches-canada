@@ -168,7 +168,7 @@
 											<a href="https://www.weddingwire.ca/wedding-flowers/bunchesdirect--e8654/photos/0">GALLERY</a>
 										</li>
 										<li class="week-sale">
-											<a href="https://www.weddingwire.ca/wedding-flowers/bunchesdirect--e8654/photos/0">WEEK SALE</a>
+											<a href="https://www.weddingwire.ca/weekly/">WEEK SALE</a>
 										</li>											
 									</ul>
 									<div class="menu-bg">
