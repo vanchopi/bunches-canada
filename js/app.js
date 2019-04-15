@@ -106,7 +106,7 @@ $(document).ready(function(){
                     if (response.indexOf('[--1--]success[--1--]') != -1){
                         $(this).closest(wrp).addClass('get-cart');
                         response = response.replace('[--1--]success[--1--],','');
-                    }esle{
+                    }else{
                         $(this).closest(wrp).children('.message').text('Error');                        
                     }
                     _.after(response);
