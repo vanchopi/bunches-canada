@@ -99,7 +99,7 @@
 										<div class="block-wrapper">
 											<div class="block-internal">
 												<div class="mobile-cross__wrapper">
-													<div class="cross-internal">×</div>
+													<div class="cross-internal" onclick="">×</div>
 												</div>
 												<div class="txt">Your Cart is empty.</div>
 											</div>
