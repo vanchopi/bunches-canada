@@ -289,7 +289,7 @@
 				</div>
 			</div>
 		</section> 
-		<input type="hidden" class="hidden checking">
+		<!--<input type="hidden" class="hidden checking">-->
 	</div>
 	<script src="/weekly/assets/js/jquery-3.3.1.min.js"></script>
 	<script src="/weekly/assets/js/jquery.countdown-2.2.0/jquery.countdown.min.js"></script>
