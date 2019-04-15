@@ -63,11 +63,21 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.block-wrapper .cross-internal', function(){
-      let wSize = document.documentElement.clientWidth;
+        let wSize = document.documentElement.clientWidth;
         if(wSize < 750){  
           $('.block-wrapper').removeClass('show');  
           $('.cart-cont').removeClass('show');
         }  
+    })
+
+    $(document).on('click','.item-order__wrapp .show-cart', function(){        
+        let wSize = document.documentElement.clientWidth;
+        if(wSize < 750){
+            $(".icon.mobile-cart").trigger("click");
+        }else{
+            $('body, html').animate({ scrollTop: 0 }, 600);
+            $('.block-wrapper').addClass('show');
+        }
     })
 
 })

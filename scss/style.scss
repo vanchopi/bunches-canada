@@ -37,6 +37,7 @@ textarea:focus, input:focus{
 	margin: auto;
 }
 
+
 @import url(https://fonts.googleapis.com/css?family=Poly:400i);
 .item-percantage {
   font-size: 100px;
@@ -96,6 +97,17 @@ $pad: 0 20px 0 20px;
 							height: 29px;
 							padding: 0 40px 0 20px;							
 						}
+						input[type="submit"]{
+							position: absolute;
+						    font-size: 0;
+						    width: 40px;
+						    height: 28px;
+						    right: 0;
+						    padding: 0;
+						    border: none;
+						    background: transparent;
+						    top: 0;
+						}
 						/*&:after*/
 						.search-bt__wrp{
 							position: absolute;
@@ -143,11 +155,10 @@ $pad: 0 20px 0 20px;
 						width: $widthMid;
 						display: inline-flex;	
 						justify-content: flex-end;
-						#minicartcontent {
+						.txt{
 					        width: 100%;
 						    border: none;
 						    overflow-y: auto;
-						    padding: 5px;
 						    .minicarttotal {
 							    text-align: right;
 							    margin-right: 10px;
@@ -521,6 +532,9 @@ $pad: 0 20px 0 20px;
 								padding: 15px 15px 20px 15px;
 								text-align: center;
 								background: #ECEAE6;
+								.mini-cart2{
+									display: none;
+								}
 								.item-counter__wrap{
 									position: relative;
 									.item-img__wrap{
@@ -607,6 +621,20 @@ $pad: 0 20px 0 20px;
 									    justify-content: flex-end;
 									}
 								}
+								.item-order__wrapp.get-cart{
+									span{
+
+										&:nth-child(2){
+											display: none;
+										}
+										&:last-child{
+											display: block;
+										}
+									}
+									.message{
+										display: block;
+									}
+								}
 								.item-order__wrapp{
 									span{
 										min-width: 112px;
@@ -624,6 +652,21 @@ $pad: 0 20px 0 20px;
 										    color: #897093 !important;
 										    border-radius: 10px;
 										}
+									}
+									.show-cart{
+										display: none;
+									}
+									.show{
+										display: block;
+									}
+									.hidden{
+										display: none !important;
+									}
+									.message{										
+										color: #E7723A;
+    									display: none;
+    									padding: 6px 0px 8px;    	
+    									font-size: 11px;								
 									}
 								}
 							}
@@ -937,6 +980,7 @@ $pad: 0 20px 0 20px;
 							}
 							.block-wrapper.show{
 								display: inline-table;
+								min-width: 100%;
 							}
 						}
 						.phone-cont{
