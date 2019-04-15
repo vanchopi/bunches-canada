@@ -140,7 +140,7 @@
 							<div class="header-menu__internal">
 								<div class="menu-top">
 									<div class="mobile-cross__wrapper">
-										<div class="cross-internal">×</div>
+										<div class="cross-internal" onclick="">×</div>
 									</div>
 									<!--<div class="top-line">
 										<div>WOW! Merveilleux service, J'ai adoré les fleurs et le service. Je vais vous conseiller ailleur dans le future. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WOW! Merveilleux service, J'ai adoré les fleurs et le service. Je vais vous conseiller ailleur dans le future.</div>
