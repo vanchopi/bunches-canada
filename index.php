@@ -274,7 +274,8 @@
                                                     data-quantity_per_bunch="1"
                                                 >Add To Cart</span>
 
-                                                <span class="show-cart">Show Cart Now</span>							                    
+                                                <span class="show-cart">Show Cart Now</span>
+                                                <div class="hidden-block"></div>							                    
 
 							                </div>
 							            </div>

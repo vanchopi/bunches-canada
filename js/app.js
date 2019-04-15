@@ -95,24 +95,26 @@ $(document).ready(function(){
     /******************************************************************/
 
 
-    $(document).on('click', '.item-order__wrapp span.cart-class', function () {
-        let wrp = $('.item-order__wrapp');        
+    $(document).on('click', '.item-order__wrapp span.cart-class', function () {        
+        let wrp = $('.item-order__wrapp');  
         let _ = $(this),
             data = _.data();
         $.post('/index.php', data)
             .done(function (response) {
                 if(response){                    
                     console.log(response);
-                    if (response.indexOf('[--1--]success[--1--]') != -1){
-                        $(this).closest(wrp).addClass('get-cart');
+                    $(this).closest(wrp).addClass('get-cart');
+                    if (response.indexOf('[--1--]success[--1--]') != -1){                        
                         response = response.replace('[--1--]success[--1--],','');
                     }else{
                         $(this).closest(wrp).children('.message').text('Error');                        
                     }
-                    _.after(response);
+                    $('.hidden-block').append(response);
                     getCart();                                     
                 }
-            });  
+            }); 
+        
+
     })
 
 
