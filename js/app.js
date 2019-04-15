@@ -96,19 +96,23 @@ $(document).ready(function(){
 
 
     $(document).on('click', '.item-order__wrapp span.cart-class', function () {
-        let wrp = $('.item-order__wrapp');
+        let wrp = $('.item-order__wrapp');        
         let _ = $(this),
             data = _.data();
         $.post('/index.php', data)
             .done(function (response) {
-                if(response){
-                    $(this).closest(wrp).addClass('get-cart');
+                if(response){                    
                     console.log(response);
+                    if (response.indexOf('[--1--]success[--1--]') != -1){
+                        $(this).closest(wrp).addClass('get-cart');
+                        response = response.replace('[--1--]success[--1--],','');
+                    }esle{
+                        $(this).closest(wrp).children('.message').text('Error');                        
+                    }
                     _.after(response);
                     getCart();                                     
                 }
-            });
-        $($(this).closest(wrp).children("span.cart-class + .mini-cart2")[0].previousSibling).remove();       
+            });  
     })
 
 
