@@ -97,13 +97,13 @@ $(document).ready(function(){
 
     $(document).on('click', '.item-order__wrapp span.cart-class', function () {        
         let wrp = $('.item-order__wrapp');  
+        $(this).closest(wrp).addClass('get-cart');
         let _ = $(this),
             data = _.data();
         $.post('/index.php', data)
             .done(function (response) {
                 if(response){                    
-                    console.log(response);
-                    $(this).closest(wrp).addClass('get-cart');
+                    console.log(response);                    
                     if (response.indexOf('[--1--]success[--1--]') != -1){                        
                         response = response.replace('[--1--]success[--1--],','');
                     }else{
