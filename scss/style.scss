@@ -759,6 +759,13 @@ input.hidden{
    	.weekly-cont .weekly-cont__internal .weekly-cont__header .header-middle__wrapper .header-middle__internal .string-wrapper.phone{
    		margin-top: 25px;
    	}
+   	a{
+   		outline: none !important;
+   		text-decoration: none;
+   	}
+   	.weekly-cont .weekly-cont__internal .weekly-cont__header .header-menu__wrapper .header-menu__internal .menu-top .menu-bg{
+   		width: 100%;
+   	}
 
 }
 
