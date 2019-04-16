@@ -127,7 +127,9 @@
 											<img src="/weekly/images/search-m.svg" alt="">
 										</div>-->
 										<div class="icon">
-											<img src="/weekly/images/phone-m.svg" alt="">
+											<a href="tel:+18666908425">
+												<img src="/weekly/images/phone-m.svg" alt="">
+											</a>	
 										</div>
 										<div class="icon mobile-cart">
 											<img src="/weekly/images/cart-m.svg" alt="">
