@@ -54,7 +54,7 @@
 	<!--[if lt IE 11]>
 	<link rel="stylesheet" href="css/style-ie.css">
 	<![endif]-->
-	
+
 </head>
 <body>
     <!-- OLD Google Tag Manager (noscript) -->
@@ -105,7 +105,7 @@
 								</div>
                                 <a href="/">
                                     <div class="logo-cont">
-                                        <img src="/weekly/images/logo3.svg" alt="">
+                                        <img src="/weekly/images/logo3.png" alt="">
                                     </div>
                                 </a>
 								<div class="cart-cont ">
