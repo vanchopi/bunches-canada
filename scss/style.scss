@@ -730,7 +730,7 @@ input.hidden{
 /*For IE*/
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 	.week-sale a:after{
-		line-height: 1.5;
+		line-height: 1.5; 
 	}
    	.weekly-cont .weekly-cont__internal .weekly-cont__items .items-list__cont ul.items-list__warp li.item .item-internal__wrap .item-internal__cont .item-title{
 	   	display: flex;
