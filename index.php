@@ -50,6 +50,11 @@
 	<meta name="keywords" content="test-task">
 	<link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
 	<link rel="stylesheet" href="/weekly/css/style.css">
+
+	<!--[if lt IE 11]>
+	<link rel="stylesheet" href="css/style-ie.css">
+	<![endif]-->
+	
 </head>
 <body>
     <!-- OLD Google Tag Manager (noscript) -->
